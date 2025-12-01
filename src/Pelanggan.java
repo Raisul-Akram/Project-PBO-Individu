@@ -1,5 +1,5 @@
 public class Pelanggan {
-    private int idTiket
+    private int idTiket;
     private String namaLengkap;
     private int usia;
     private boolean isHamil;
