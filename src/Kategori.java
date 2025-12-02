@@ -1,3 +1,3 @@
 public enum Kategori {
-    LANSIA, ANAK_ANAK, IBU_HAMIL, REMAJA, UMUM;
+    LANSIA, ANAK_ANAK, IBU_HAMIL, REMAJA, UMUM
 }
