@@ -1,35 +1,91 @@
-# Dokumentasi Project : Trans Koetaradja - Sistem Manajemen Bus
-Proyek ini adalah simulasi perangkat lunak berbasis Java CLI  untuk mengelola operasional penumpang bus Trans Koetaradja di Kota Banda Aceh.
-Proyek ini dikembangkan sebagai tugas Projek Individu untuk mendemonstrasikan pemahaman mendalam mengenai konsep Pemrograman Berorientasi Objek.
+========================================================================
+TRANS KOETARADJA - PROYEK PEMROGRAMAN BERORIENTASI OBJEK JAVA
+========================================================================
 
-Proyek ini disusun untuk memenuhi tugas oleh:
-Raisul Akram (2408107010107)
+DESKRIPSI PROYEK
+Proyek ini adalah simulasi sistem manajemen penumpang untuk bus Trans Koetaradja
+di Kota Banda Aceh. Program ini dibuat untuk memenuhi tugas Projek Individu
+mata kuliah Pemrograman Berorientasi Objek.
+Proyek ini disusun oleh : Raisul Akram (2408107010107)
 
-# Deskripsi project Program ini mensimulasikan alur penumpang naik dan turun dengan aturan bisnis yang kompleks, meliputi:
-1. Validasi Saldo: Penumpang hanya bisa naik jika saldo mencukupi.
-2. Prioritas Kursi: Algoritma otomatis memisahkan penumpang prioritas (Lansia, Ibu Hamil, Anak-anak) dengan penumpang umum/remaja.
-3. Manajemen Kapasitas: Mengelola kuota kursi Biasa (16), Prioritas (4), dan Berdiri (20).
-Catatan Teknis: Berbeda dengan implementasi standar yang menggunakan ArrayList, proyek ini menggunakan Array Statis ([]) dengan manipulasi indeks manual. Pendekatan ini dipilih untuk mendemonstrasikan logika manajemen memori dan algoritma pencarian slot kosong yang lebih mendasar dan terkontrol.
+Program ini berfungsi untuk mengatur alur penumpang naik dan turun bus dengan
+memperhatikan aturan kapasitas dan prioritas penumpang (Lansia, Ibu Hamil,
+dan Anak-anak) serta validasi saldo tiket.
 
-## FITUR UNGGULAN
-1.  Auto-Categorization: Sistem otomatis mendeteksi kategori penumpang berdasarkan input umur dan status fisik. (Lansia >60 thn, Anak <10 thn, Ibu Hamil -> Prioritas) (Remaja 10-19 thn -> Kategori Khusus/Masuk kursi biasa) (Umum -> Biasa)
-2. Ticketing System: Setiap penumpang mendapatkan ID Tiket Unik (Auto-increment) saat berhasil naik.
-3. Smart Seating: Jika kursi prioritas penuh, penumpang prioritas otomatis dialihkan ke kursi biasa (namun penumpang biasa tidak boleh duduk di kursi prioritas).
-4. Error Handling: Input pengguna dilindungi oleh try-catch untuk mencegah crash saat kesalahan input tipe data.
+FITUR UTAMA & PERBEDAAN 
+Untuk memastikan keaslian kode dan performa yang terkontrol, proyek ini
+menggunakan pendekatan manual (Low-Level Logic):
 
-## KONSEP OOP Yang Diterapkan Sesuai persyaratan tugas, proyek ini mengimplementasikan konsep-konsep berikut:
-1. Class & Object: Class Pelanggan sebagai model data dan TransKoetaradja sebagai kontroler.
-2. Encapsulation: Semua atribut private dan diakses melalui public getter/setter.
-3. Interface: Interface Transportasi mendefinisikan kontrak method wajib (prosesNaik, prosesTurun).
-4. Polymorphism: Override method prosesNaik dari interface dengan logika spesifik bus.
-5. Enum: Enum Kategori untuk standarisasi tipe penumpang (LANSIA, REMAJA, dll).
-6. Exception Handling: Menangani NumberFormatException pada input menu dan usia.
-7. Array Logic: Algoritma manual untuk add, remove, dan search dalam array statis.
+1. Array Statis vs ArrayList:
+   Program ini tidak menggunakan ArrayList. Sebagai gantinya, saya menggunakan
+   Array Statis biasa (Fixed Size) dan memanipulasi indeks array secara manual
+   untuk proses penambahan (add) dan penghapusan (remove) data. Ini menunjukkan
+   pemahaman logika algoritma dasar.
 
-## STRUKTUR FILE
-* ** Simulasi.java: Main Class. Menangani antarmuka menu (UI) dan input pengguna.
-* ** TransKoetaradja.java: Core Logic. Mengatur array kursi, pendapatan, dan aturan prioritas.
-* **Pelanggan.java: Model. Menyimpan data nama, id, saldo, dan logika penentuan kategori.
-* **Transportasi.java: Interface. Blueprint fungsi dasar kendaraan.
-* **Kategori.java: Enum. Daftar konstanta kategori penumpang.
+2. Fitur Tambahan (Kategori Remaja):
+   Selain kategori wajib (Lansia, Anak, Ibu Hamil, Umum), program ini
+   menambahkan kategori "Remaja" (usia 10-19 tahun) yang secara otomatis
+   dideteksi oleh sistem.
+
+3. ID Tiket Otomatis:
+   Setiap penumpang yang berhasil naik akan mendapatkan ID Tiket unik yang
+   dibuat secara otomatis (Auto-Increment), memudahkan pelacakan data.
+
+4. Validasi Saldo:
+   Sistem mengecek saldo penumpang sebelum mengizinkan naik. Jika saldo
+   kurang dari Rp 2.000, penumpang ditolak.
+
+IMPLEMENTASI KONSEP OOP
+Proyek ini menerapkan minimal 6 konsep OOP sesuai syarat tugas:
+
+1. Class & Object:
+   Implementasi pada class Pelanggan (sebagai model data) dan
+   TransKoetaradja (sebagai kontroler sistem).
+
+2. Encapsulation:
+   Seluruh atribut bersifat private dan diakses menggunakan method
+   public (Getter/Setter) untuk keamanan data.
+
+3. Interface:
+   Menggunakan interface 'Transportasi' sebagai kontrak metode dasar
+   yang harus dimiliki oleh kendaraan (prosesNaik, prosesTurun).
+
+4. Polymorphism:
+   Menggunakan konsep Override pada method yang diwarisi dari interface
+   untuk menyesuaikan logika khusus bus Trans Koetaradja.
+
+5. Enum:
+   Menggunakan Enum 'Kategori' untuk standarisasi tipe penumpang guna
+   menghindari kesalahan input string (LANSIA, REMAJA, dll).
+
+6. Exception Handling:
+   Menggunakan blok try-catch untuk menangani kesalahan input pengguna,
+   misalnya jika pengguna memasukkan huruf pada kolom usia atau menu.
+
+STRUKTUR FILE
+
+1. Simulasi.java
+   File utama (Main Class). Berfungsi sebagai antarmuka pengguna (UI)
+   untuk input data dan menampilkan menu.
+
+2. TransKoetaradja.java
+   Berisi logika inti bus, seperti pengaturan array kursi, perhitungan
+   pendapatan, dan logika prioritas penumpang.
+
+3. Pelanggan.java
+   Merepresentasikan data penumpang (Nama, ID, Usia, Saldo, Kategori).
+
+4. Transportasi.java
+   Interface yang berisi definisi method wajib.
+
+5. Kategori.java
+   Enum yang berisi daftar tipe penumpang.
+
+CARA MENJALANKAN PROGRAM
+Menggunakan Command Line / Terminal
+1. Buka terminal/CMD dan arahkan ke direktori folder proyek.
+2. Compile semua file dengan perintah:
+   javac *.java
+3. Jalankan program dengan perintah:
+   java Simulasi
 
