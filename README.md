@@ -6,7 +6,8 @@ Proyek ini disusun untuk memenuhi tugas oleh:
 Nama: Raisul Akram 
 Npm: 2408107010107
 
-# DESKRIPSI PROYEK Program ini mensimulasikan alur penumpang naik dan turun dengan aturan bisnis yang kompleks, meliputi:
+# DESKRIPSI PROYEK :
+Program ini mensimulasikan alur penumpang naik dan turun dengan aturan bisnis yang kompleks, meliputi:
 1. Validasi Saldo: Penumpang hanya bisa naik jika saldo mencukupi.
 2. Prioritas Kursi: Algoritma otomatis memisahkan penumpang prioritas (Lansia, Ibu Hamil, Anak-anak) dengan penumpang umum/remaja.
 3. Manajemen Kapasitas: Mengelola kuota kursi Biasa (16), Prioritas (4), dan Berdiri (20).
@@ -18,7 +19,8 @@ Catatan Teknis: Berbeda dengan implementasi standar yang menggunakan ArrayList, 
 3. Smart Seating: Jika kursi prioritas penuh, penumpang prioritas otomatis dialihkan ke kursi biasa (namun penumpang biasa tidak boleh duduk di kursi prioritas).
 4. Error Handling: Input pengguna dilindungi oleh try-catch untuk mencegah crash saat kesalahan input tipe data.
 
-# KONSEP OOP YANG DITERAPKAN Sesuai persyaratan tugas, proyek ini mengimplementasikan konsep-konsep berikut:
+# KONSEP OOP YANG DITERAPKAN Sesuai persyaratan tugas, 
+proyek ini mengimplementasikan konsep-konsep berikut:
 1. Class & Object: Class Pelanggan sebagai model data dan TransKoetaradja sebagai kontroler.
 2. Encapsulation: Semua atribut private dan diakses melalui public getter/setter.
 3. Interface: Interface Transportasi mendefinisikan kontrak method wajib (prosesNaik, prosesTurun).
